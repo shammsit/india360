@@ -1,0 +1,553 @@
+
+/* =====================================
+   GLOBAL STYLING
+===================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+    min-height: 75px;
+    background: #fff;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 8%;
+
+    border-bottom: 3px solid #138808;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #003366;
+    white-space: nowrap;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+nav > a {
+    text-decoration: none;
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+nav > a:hover {
+    color: #ff9933;
+}
+
+
+/* =====================================
+   STATE DROPDOWN
+===================================== */
+
+.dropdown {
+    position: relative;
+}
+
+
+/* STATE BUTTON - NO ARROW */
+
+.dropdown-btn {
+    background: none;
+    border: none;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #333;
+
+    cursor: pointer;
+    padding: 10px 0;
+
+    transition: color 0.2s ease;
+}
+
+.dropdown-btn:hover,
+.dropdown.active .dropdown-btn {
+    color: #ff9933;
+}
+
+
+/* DROPDOWN PANEL */
+
+.dropdown-menu {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    right: -100px;
+
+    width: 680px;
+    max-height: 480px;
+
+    overflow-y: auto;
+
+    background: #fff;
+
+    border-top: 3px solid #ff9933;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    padding: 25px;
+
+    z-index: 1000;
+
+    border-radius: 0 0 6px 6px;
+
+    grid-template-columns: 1.5fr 1fr;
+    gap: 25px;
+}
+
+
+/* SHOW DROPDOWN */
+
+.dropdown.active .dropdown-menu {
+    display: grid;
+}
+
+
+/* =====================================
+   DROPDOWN SECTIONS
+===================================== */
+
+.dropdown-section {
+    min-width: 0;
+}
+
+
+/* SECTION HEADINGS */
+
+.dropdown-section h3 {
+    color: #003366;
+
+    font-size: 16px;
+
+    padding-bottom: 13px;
+    margin-bottom: 15px;
+
+    border-bottom: 2px solid #eee;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* COUNT BADGE */
+
+.dropdown-section h3 span {
+    background: #f1f4f8;
+
+    color: #003366;
+
+    font-size: 12px;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+}
+
+
+/* =====================================
+   STATE AND UT LIST
+===================================== */
+
+.dropdown-list {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 3px 12px;
+}
+
+
+/* UNION TERRITORIES */
+
+.union-section {
+    border-left: 1px solid #eee;
+    padding-left: 20px;
+}
+
+.union-section .dropdown-list {
+    grid-template-columns: 1fr;
+}
+
+
+/* LOCATION LINKS */
+
+.dropdown-list a {
+    text-decoration: none;
+
+    color: #444;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    padding: 12px;
+
+    border-radius: 5px;
+
+    transition: all 0.2s ease;
+
+    line-height: 1.4;
+}
+
+
+/* HOVER EFFECT */
+
+.dropdown-list a:hover {
+    background: #fff3e7;
+
+    color: #c45b00;
+
+    padding-left: 17px;
+}
+
+
+/* =====================================
+   SCROLLBAR
+===================================== */
+
+.dropdown-menu::-webkit-scrollbar {
+    width: 7px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.hero {
+    min-height: 650px;
+
+    padding: 60px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 153, 51, 0.85) 0%,
+        rgba(255, 255, 255, 0.95) 48%,
+        rgba(19, 136, 8, 0.85) 100%
+    );
+}
+
+
+/* ASHOKA STAMBH */
+
+.emblem img {
+    width: 100px;
+    height: 120px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
+}
+
+
+/* SUBTITLE */
+
+.subtitle {
+    color: #333;
+
+    letter-spacing: 5px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+}
+
+
+/* MAIN HEADING */
+
+.hero h1 {
+    font-size: clamp(35px, 6vw, 65px);
+
+    color: #003366;
+
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+}
+
+
+/* HINDI HEADING */
+
+.hero h2 {
+    color: #138808;
+
+    font-size: 28px;
+
+    margin-bottom: 20px;
+}
+
+
+/* DESCRIPTION */
+
+.description {
+    max-width: 650px;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #333;
+
+    margin-bottom: 30px;
+}
+
+
+/* EXPLORE BUTTON */
+
+.explore-btn {
+    text-decoration: none;
+
+    background: #003366;
+    color: #fff;
+
+    padding: 14px 30px;
+
+    border-radius: 4px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.explore-btn:hover {
+    background: #ff9933;
+    color: #222;
+}
+
+
+/* =====================================
+   ABOUT AND STATE SECTIONS
+===================================== */
+
+.about {
+    text-align: center;
+
+    padding: 65px 20px;
+
+    background: #fff;
+}
+
+.about h2 {
+    color: #003366;
+
+    font-size: 30px;
+
+    margin-bottom: 20px;
+}
+
+.about p {
+    max-width: 700px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #555;
+}
+
+
+/* =====================================
+   FOOTER
+===================================== */
+
+footer {
+    background: #003366;
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 25px 15px;
+
+    line-height: 2;
+
+    font-size: 13px;
+}
+
+
+/* =====================================
+   MOBILE RESPONSIVENESS
+===================================== */
+
+@media (max-width: 650px) {
+
+    header {
+        padding: 20px;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 20px;
+    }
+
+    .dropdown {
+        width: auto;
+        text-align: center;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+
+        top: 100%;
+        left: 50%;
+        right: auto;
+
+        transform: translateX(-50%);
+
+        width: min(92vw, 480px);
+
+        max-height: 400px;
+
+        overflow-y: auto;
+
+        grid-template-columns: 1fr;
+
+        padding: 15px;
+
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .union-section {
+        border-left: none;
+
+        border-top: 1px solid #eee;
+
+        padding: 20px 0 0;
+    }
+
+    .dropdown-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .union-section .dropdown-list {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h2 {
+        font-size: 23px;
+    }
+
+    .subtitle {
+        letter-spacing: 3px;
+    }
+
+    .about h2 {
+        font-size: 25px;
+    }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 380px) {
+
+    nav {
+        gap: 13px;
+    }
+
+    nav > a,
+    .dropdown-btn {
+        font-size: 13px;
+    }
+
+    .dropdown-list {
+        grid-template-columns: 1fr;
+    }
+
+    .union-section .dropdown-list {
+        grid-template-columns: 1fr;
+    }
+}
+/* ADMIN NAVIGATION */
+
+.admin-link {
+    margin-left: 8px;
+    padding: 9px 20px;
+    background: #063568;
+    color: #ffffff !important;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.admin-link:hover {
+    background: #0b4b8a;
+}

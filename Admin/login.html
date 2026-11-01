@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | India360</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <main class="login-container">
+        <section class="login-card">
+            <a href="../index.html" class="brand">India<span>360</span></a>
+
+            <div class="login-heading">
+                <h1>Admin Portal</h1>
+                <p>Sign in to access the India360 administration panel.</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter admin email"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" id="loginBtn">
+                    Sign In
+                </button>
+
+                <p id="loginMessage" role="alert"></p>
+            </form>
+
+            <a href="../index.html" class="back-link">
+                ← Back to India360
+            </a>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="login.js"></script>
+</body>
+</html>

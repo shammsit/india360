@@ -1,29 +1,201 @@
 
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Welcome India</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(white, #ff9933, white);
-            font-family: Arial, sans-serif;
-        }
+<html lang="en">
 
-        h1 {
-            color: #138808;
-            font-size: 45px;
-            text-align: center;
-        }
-    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>India360 | Explore India</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Welcome India</h1>
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            🇮🇳 <span>INDIA360</span>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#about">About India</a>
+
+            <!-- STATE DROPDOWN -->
+            <div class="dropdown" id="stateDropdown">
+
+                <button class="dropdown-btn" id="stateBtn"
+                    aria-expanded="false">
+                    State
+                </button>
+
+                <div class="dropdown-menu">
+
+                    <!-- STATES -->
+                    <div class="dropdown-section">
+
+                        <h3>States <span>28</span></h3>
+
+                        <div class="dropdown-list">
+
+                            <a href="Andhra_Pradesh/index.html">Andhra Pradesh</a>
+                            <a href="Arunachal_Pradesh/index.html">Arunachal Pradesh</a>
+                            <a href="Assam/index.html">Assam</a>
+                            <a href="Bihar/index.html">Bihar</a>
+                            <a href="Chhattisgarh/index.html">Chhattisgarh</a>
+                            <a href="Goa/index.html">Goa</a>
+                            <a href="Gujarat/index.html">Gujarat</a>
+                            <a href="Haryana/index.html">Haryana</a>
+                            <a href="Himachal_Pradesh/index.html">Himachal Pradesh</a>
+                            <a href="Jharkhand/index.html">Jharkhand</a>
+                            <a href="Karnataka/index.html">Karnataka</a>
+                            <a href="Kerala/index.html">Kerala</a>
+                            <a href="Madhya_Pradesh/index.html">Madhya Pradesh</a>
+                            <a href="Maharashtra/index.html">Maharashtra</a>
+                            <a href="Manipur/index.html">Manipur</a>
+                            <a href="Meghalaya/index.html">Meghalaya</a>
+                            <a href="Mizoram/index.html">Mizoram</a>
+                            <a href="Nagaland/index.html">Nagaland</a>
+                            <a href="Odisha/index.html">Odisha</a>
+                            <a href="Punjab/index.html">Punjab</a>
+                            <a href="Rajasthan/index.html">Rajasthan</a>
+                            <a href="Sikkim/index.html">Sikkim</a>
+                            <a href="Tamil_Nadu/index.html">Tamil Nadu</a>
+                            <a href="Telangana/index.html">Telangana</a>
+                            <a href="Tripura/index.html">Tripura</a>
+                            <a href="Uttar_Pradesh/index.html">Uttar Pradesh</a>
+                            <a href="Uttarakhand/index.html">Uttarakhand</a>
+                            <a href="West_Bengal/index.html">West Bengal</a>
+
+                        </div>
+                    </div>
+
+
+                    <!-- UNION TERRITORIES -->
+                    <div class="dropdown-section union-section">
+
+                        <h3>Union Territories <span>8</span></h3>
+
+                        <div class="dropdown-list">
+
+                            <a href="Andaman_and_Nicobar_Islands/index.html">
+                                Andaman and Nicobar Islands
+                            </a>
+
+                            <a href="Chandigarh/index.html">Chandigarh</a>
+
+                            <a href="Dadra_and_Nagar_Haveli_and_Daman_and_Diu/index.html">
+                                Dadra and Nagar Haveli and Daman and Diu
+                            </a>
+
+                            <a href="Delhi/index.html">Delhi (NCT)</a>
+
+                            <a href="Jammu_and_Kashmir/index.html">
+                                Jammu and Kashmir
+                            </a>
+
+                            <a href="Ladakh/index.html">Ladakh</a>
+
+                            <a href="Lakshadweep/index.html">Lakshadweep</a>
+
+                            <a href="Puducherry/index.html">Puducherry</a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <a href="#contact">Contact</a>
+            <a href="Admin/login.html" class="nav-link admin-link">
+    Admin
+</a>
+        </nav>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+
+            <div class="emblem">
+                <img src="ashoka-stambh.png"
+                     alt="Ashoka Lion Capital">
+            </div>
+
+            <p class="subtitle">THE LAND OF DIVERSITY</p>
+
+            <h1>WELCOME TO INDIA</h1>
+
+            <h2>भारत में आपका स्वागत है</h2>
+
+            <p class="description">
+                A nation of unity, diversity, heritage and pride.
+                Experience the beauty, culture and spirit of India.
+            </p>
+
+            <a href="#about" class="explore-btn">
+                EXPLORE INDIA
+            </a>
+
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="about">
+
+            <h2>Discover Incredible India</h2>
+
+            <p>
+                India is a land of rich traditions, magnificent
+                heritage, diverse cultures and extraordinary
+                achievements.
+            </p>
+
+        </section>
+
+
+        <!-- STATE SECTION -->
+        <section id="state" class="about">
+
+            <h2>Explore Indian States</h2>
+
+            <p>
+                Discover the unique traditions, languages,
+                heritage and beauty of India's states and
+                union territories.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer id="contact">
+
+        <p>🇮🇳 Proud to be Indian</p>
+
+        <p>
+            India360 | An Independent Digital Project
+        </p>
+
+        <p>
+            Not an Official Government Website
+        </p>
+
+        <p>
+            © <span id="year"></span> India360. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
 </html>

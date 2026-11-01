@@ -1,0 +1,131 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 38px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    box-shadow: 0 8px 30px rgba(15, 35, 60, 0.07);
+}
+
+.brand {
+    display: inline-block;
+    color: #063568;
+    font-size: 29px;
+    font-weight: 800;
+    text-decoration: none;
+    margin-bottom: 32px;
+}
+
+.brand span {
+    color: #e2a52b;
+}
+
+.login-heading {
+    margin-bottom: 28px;
+}
+
+.login-heading h1 {
+    color: #142b45;
+    font-size: 25px;
+    margin-bottom: 9px;
+}
+
+.login-heading p {
+    color: #68788a;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #253b52;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    height: 46px;
+    padding: 0 13px;
+    border: 1px solid #ccd5df;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #1763a6;
+    box-shadow: 0 0 0 3px rgba(23, 99, 166, 0.1);
+}
+
+#loginBtn {
+    width: 100%;
+    height: 47px;
+    background: #063568;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#loginBtn:hover {
+    background: #0b4b8a;
+}
+
+#loginBtn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+#loginMessage {
+    margin-top: 16px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #c0392b;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: #52677d;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    color: #063568;
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 27px 22px;
+    }
+}

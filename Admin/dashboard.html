@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | India360</title>
+
+    <!-- Hide dashboard until authorization succeeds -->
+    <script>
+        document.documentElement.classList.add("auth-check");
+    </script>
+
+    <style>
+        html.auth-check body {
+            visibility: hidden !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <a href="../index.html" class="brand">India<span>360</span></a>
+
+        <div class="topbar-right">
+            <div class="admin-info">
+                <strong id="adminEmail">Verifying...</strong>
+                <span id="adminRole">Checking permissions</span>
+            </div>
+            <button id="logoutBtn" type="button">Logout</button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="page-heading">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Central administration portal for India360.</p>
+            </div>
+            <span class="security-status" id="securityStatus">
+                Verifying access...
+            </span>
+        </div>
+
+        <section class="welcome-section">
+            <h2>Welcome to India360 Administration</h2>
+            <p>
+                Manage state operations, applications, administrators
+                and platform information from one central location.
+            </p>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="dashboard-card">
+                <h3>State Management</h3>
+                <p>Manage state portals and their configurations.</p>
+                <span>Coming Soon</span>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Partner Applications</h3>
+                <p>Review and manage state partner applications.</p>
+                <span>Coming Soon</span>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Developer Applications</h3>
+                <p>Manage developer and technical team applications.</p>
+                <span>Coming Soon</span>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Admin Management</h3>
+                <p>Manage authorized administrators and their roles.</p>
+                <span>Coming Soon</span>
+            </article>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

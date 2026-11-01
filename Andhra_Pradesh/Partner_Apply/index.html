@@ -1,0 +1,607 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Apply to become a State Partner of India360.">
+    <title>State Partner Application | India360</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <a href="../../index.html" class="logo">🇮🇳 INDIA360</a>
+    <a href="../index.html" class="back-link">← Back to Andhra Pradesh</a>
+</header>
+
+<section class="page-banner">
+    <p class="tag">JOIN OUR TEAM</p>
+    <h1>State Partner Application</h1>
+    <p>
+        Represent Andhra Pradesh and help showcase its culture,
+        heritage, tourism and identity through India360.
+    </p>
+</section>
+
+<main class="form-container">
+
+    <div class="form-heading">
+        <h2>Application Form</h2>
+        <p>Please provide accurate information in all required fields.</p>
+        <p class="required-note">Fields marked with * are mandatory.</p>
+    </div>
+
+    <form id="partnerForm">
+
+        <!-- 01 PERSONAL INFORMATION -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>01</span>
+                <h3>Personal Information</h3>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Full Name *</label>
+                    <input type="text" name="fullName" required
+                        placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label>Date of Birth *</label>
+                    <input type="date" name="dob" id="dob" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Gender *</label>
+                    <select name="gender" required>
+                        <option value="">Select gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                        <option>Prefer not to say</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" name="email" required
+                        placeholder="example@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" name="mobile" required
+                        pattern="[6-9][0-9]{9}" maxlength="10"
+                        placeholder="10-digit mobile number">
+                </div>
+
+                <div class="form-group">
+                    <label>WhatsApp Number *</label>
+                    <input type="tel" name="whatsapp" required
+                        pattern="[6-9][0-9]{9}" maxlength="10"
+                        placeholder="WhatsApp number">
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 02 LOCATION DETAILS -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>02</span>
+                <h3>Location & Address Details</h3>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>State *</label>
+                    <input type="text" name="state"
+                        value="Andhra Pradesh" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label>District *</label>
+                    <select name="district" id="district" required>
+                        <option value="">Select your district</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>City / Town / Village *</label>
+                    <input type="text" name="city" required
+                        placeholder="Enter your location">
+                </div>
+
+                <div class="form-group">
+                    <label>PIN Code *</label>
+                    <input type="text" name="pincode" required
+                        pattern="[0-9]{6}" maxlength="6"
+                        placeholder="6-digit PIN code">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Full Residential Address *</label>
+                    <textarea name="address" rows="3" required
+                        placeholder="House number, street, locality, village and landmark"></textarea>
+                </div>
+
+            </div>
+
+            <div class="location-box">
+
+                <h4>Live Geographic Location *</h4>
+
+                <p>
+                    Allow location access to capture your current
+                    geographical coordinates for location verification.
+                </p>
+
+                <button type="button" id="getLocation" class="location-btn">
+                    Locate My Current Position
+                </button>
+
+                <p id="locationMessage" role="status">
+                    Location not captured yet.
+                </p>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Latitude *</label>
+                        <input type="text" name="latitude"
+                            id="latitude" readonly required
+                            placeholder="Not captured">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Longitude *</label>
+                        <input type="text" name="longitude"
+                            id="longitude" readonly required
+                            placeholder="Not captured">
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Location Accuracy</label>
+                        <input type="text" id="accuracy"
+                            readonly placeholder="Not available">
+                    </div>
+
+                </div>
+
+                <p class="field-hint">
+                    GPS coordinates are captured only after you grant
+                    browser permission. Use HTTPS or localhost.
+                    These coordinates represent your current device
+                    location, not automatically your permanent address.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- 03 EDUCATION -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>03</span>
+                <h3>Educational & Professional Details</h3>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Highest Qualification *</label>
+                    <select name="education" required>
+                        <option value="">Select qualification</option>
+                        <option>Secondary (10th)</option>
+                        <option>Higher Secondary (12th)</option>
+                        <option>Diploma</option>
+                        <option>Undergraduate</option>
+                        <option>Postgraduate</option>
+                        <option>Doctorate</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Current Occupation *</label>
+                    <select name="occupation" required>
+                        <option value="">Select occupation</option>
+                        <option>Student</option>
+                        <option>Working Professional</option>
+                        <option>Entrepreneur</option>
+                        <option>Freelancer</option>
+                        <option>Teacher / Educator</option>
+                        <option>Social Worker</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>College / University / Organisation</label>
+                    <input type="text" name="institution"
+                        placeholder="Enter institution name">
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 04 LANGUAGES -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>04</span>
+                <h3>Languages Known</h3>
+            </div>
+
+            <p class="field-hint">
+                Select all languages you can communicate in.
+            </p>
+
+            <div class="checkbox-grid">
+
+                <label><input type="checkbox" name="languages" value="Telugu"> Telugu</label>
+                <label><input type="checkbox" name="languages" value="English"> English</label>
+                <label><input type="checkbox" name="languages" value="Hindi"> Hindi</label>
+                <label><input type="checkbox" name="languages" value="Urdu"> Urdu</label>
+                <label><input type="checkbox" name="languages" value="Tamil"> Tamil</label>
+                <label><input type="checkbox" name="languages" value="Kannada"> Kannada</label>
+                <label><input type="checkbox" name="languages" value="Other" id="languageOther"> Other</label>
+
+            </div>
+
+            <div class="form-group other-field" id="languageOtherBox">
+                <label>Specify Other Languages *</label>
+                <input type="text" name="otherLanguages"
+                    id="otherLanguages"
+                    placeholder="Enter language names">
+            </div>
+
+        </section>
+
+
+        <!-- 05 TECHNOLOGIES -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>05</span>
+                <h3>Technology & Technical Skills</h3>
+            </div>
+
+            <p class="field-hint">
+                Select the technologies, software or tools you know.
+            </p>
+
+            <div class="checkbox-grid">
+
+                <label><input type="checkbox" name="technologies" value="HTML"> HTML</label>
+                <label><input type="checkbox" name="technologies" value="CSS"> CSS</label>
+                <label><input type="checkbox" name="technologies" value="JavaScript"> JavaScript</label>
+                <label><input type="checkbox" name="technologies" value="Python"> Python</label>
+                <label><input type="checkbox" name="technologies" value="Java"> Java</label>
+                <label><input type="checkbox" name="technologies" value="C/C++"> C / C++</label>
+                <label><input type="checkbox" name="technologies" value="Flutter"> Flutter</label>
+                <label><input type="checkbox" name="technologies" value="React"> React</label>
+                <label><input type="checkbox" name="technologies" value="WordPress"> WordPress</label>
+                <label><input type="checkbox" name="technologies" value="UI/UX Design"> UI / UX Design</label>
+                <label><input type="checkbox" name="technologies" value="Graphic Design"> Graphic Design</label>
+                <label><input type="checkbox" name="technologies" value="Photography"> Photography</label>
+                <label><input type="checkbox" name="technologies" value="Video Editing"> Video Editing</label>
+                <label><input type="checkbox" name="technologies" value="SEO"> SEO</label>
+                <label><input type="checkbox" name="technologies" value="Content Management"> Content Management</label>
+                <label><input type="checkbox" name="technologies" value="Other" id="technologyOther"> Other</label>
+
+            </div>
+
+            <div class="form-group other-field" id="technologyOtherBox">
+                <label>Specify Other Technologies *</label>
+                <input type="text" name="otherTechnologies"
+                    id="otherTechnologies"
+                    placeholder="Enter technologies or tools">
+            </div>
+
+        </section>
+
+
+        <!-- 06 CONTRIBUTION -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>06</span>
+                <h3>Contribution & Experience</h3>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group full-width">
+                    <label>Previous Experience</label>
+                    <textarea name="experience" rows="4"
+                        placeholder="Describe your leadership, volunteering, research, content creation or community experience."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Areas of Interest *</label>
+                    <p class="field-hint">
+                        Select one or more areas where you can contribute.
+                    </p>
+
+                    <div class="checkbox-grid">
+
+                        <label><input type="checkbox" name="interests" value="Culture and Heritage"> Culture and Heritage</label>
+                        <label><input type="checkbox" name="interests" value="Tourism"> Tourism</label>
+                        <label><input type="checkbox" name="interests" value="History and Research"> History and Research</label>
+                        <label><input type="checkbox" name="interests" value="Content Writing"> Content Writing</label>
+                        <label><input type="checkbox" name="interests" value="Photography and Media"> Photography and Media</label>
+                        <label><input type="checkbox" name="interests" value="Community Engagement"> Community Engagement</label>
+                        <label><input type="checkbox" name="interests" value="Education and Awareness"> Education and Awareness</label>
+                        <label><input type="checkbox" name="interests" value="Event Coordination"> Event Coordination</label>
+                        <label><input type="checkbox" name="interests" value="Other" id="interestOther"> Other</label>
+
+                    </div>
+                </div>
+
+                <div class="form-group full-width other-field"
+                    id="interestOtherBox">
+
+                    <label>Specify Other Areas of Interest *</label>
+
+                    <input type="text" name="otherInterests"
+                        id="otherInterests"
+                        placeholder="Describe your other interests">
+
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Why do you want to become a State Partner? *</label>
+                    <textarea name="motivation" rows="4" required
+                        placeholder="Explain your motivation for joining India360."></textarea>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>How would you contribute to India360? *</label>
+                    <textarea name="contribution" rows="4" required
+                        placeholder="Share your ideas and plans for representing your state."></textarea>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 07 ONLINE PROFILES -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>07</span>
+                <h3>Online Presence & Portfolio</h3>
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>LinkedIn Profile</label>
+                    <input type="url" name="linkedin"
+                        placeholder="https://linkedin.com/in/...">
+                </div>
+
+                <div class="form-group">
+                    <label>GitHub Profile</label>
+                    <input type="url" name="github"
+                        placeholder="https://github.com/username">
+                </div>
+
+                <div class="form-group">
+                    <label>Personal Website / Portfolio</label>
+                    <input type="url" name="portfolio"
+                        placeholder="https://example.com">
+                </div>
+
+                <div class="form-group">
+                    <label>Other Social Media Profile</label>
+                    <input type="url" name="social"
+                        placeholder="Social profile URL">
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- 08 DOCUMENTS -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>08</span>
+                <h3>Document Submission</h3>
+            </div>
+
+            <div class="document-instructions">
+
+                <h4>Required Application Documents</h4>
+
+                <p>
+                    Create a Google Drive folder and upload the
+                    following documents.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>CV / Resume</strong>
+                        <span class="required-label">Required</span>
+                    </li>
+
+                    <li>
+                        <strong>Self-Consent Letter</strong>
+                        <span class="required-label">Required</span>
+                        <br>
+                        <a href="https://drive.google.com/drive/folders/1i31vYlD1Wm4NzFu_3qoZXUq59HgIGhjy?usp=sharing"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="download-btn">
+                            ↓ Download Self-Consent Letter
+                        </a>
+                    </li>
+
+                    <li>
+                        <strong>One Official Identity Document</strong>
+                        <span class="required-label">Required</span>
+                        <small>
+                            For example: masked Aadhaar, PAN,
+                            Driving Licence or Passport.
+                        </small>
+                    </li>
+
+                    <li>
+                        <strong>Short Video Introduction</strong>
+                        <span class="optional-label">Optional</span>
+                        <small>
+                            A brief introduction about yourself
+                            and your interest in India360.
+                        </small>
+                    </li>
+                </ul>
+
+                <div class="privacy-note">
+                    <strong>Document Privacy:</strong>
+                    Do not make your documents publicly accessible.
+                    Share the folder with
+                    <strong>garaishamanta0@gmail.com</strong>
+                    as Viewer. Mask sensitive identification numbers
+                    wherever possible. Never share OTPs or passwords.
+                </div>
+
+            </div>
+
+            <div class="form-group drive-group">
+
+                <label for="driveLink">
+                    Google Drive Folder Link *
+                </label>
+
+                <input type="url" id="driveLink"
+                    name="driveLink"
+                    required
+                    placeholder="https://drive.google.com/drive/folders/...">
+
+                <p class="field-hint">
+                    Paste the link to the folder containing your documents.
+                    Ensure the specified reviewer email has access.
+                </p>
+
+            </div>
+
+            <div class="document-checklist">
+
+                <p class="field-hint">
+                    Confirm that the required documents are uploaded.
+                </p>
+
+                <label>
+                    <input type="checkbox" name="documents"
+                        value="CV" required>
+                    CV / Resume uploaded
+                </label>
+
+                <label>
+                    <input type="checkbox" name="documents"
+                        value="Self Consent" required>
+                    Self-consent letter uploaded
+                </label>
+
+                <label>
+                    <input type="checkbox" name="documents"
+                        value="Identity Document" required>
+                    Official identity document uploaded
+                </label>
+
+                <label>
+                    <input type="checkbox" name="videoUploaded"
+                        value="Yes">
+                    Optional introduction video uploaded
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- 09 DECLARATION -->
+        <section class="form-section">
+
+            <div class="section-heading">
+                <span>09</span>
+                <h3>Declaration & Consent</h3>
+            </div>
+
+            <div class="declaration">
+
+                <label class="declaration-item">
+                    <input type="checkbox" name="accuracy" required>
+                    <span>
+                        I confirm that the information provided
+                        in this application is accurate and complete.
+                    </span>
+                </label>
+
+                <label class="declaration-item">
+                    <input type="checkbox" name="terms" required>
+                    <span>
+                        I agree to follow the guidelines and
+                        responsibilities of India360 if selected.
+                    </span>
+                </label>
+
+                <label class="declaration-item">
+                    <input type="checkbox" name="consent" required>
+                    <span>
+                        I consent to being contacted regarding
+                        my State Partner application.
+                    </span>
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUBMISSION -->
+        <div class="submit-section">
+
+            <button type="submit" id="submitBtn">
+                Submit Application →
+            </button>
+
+            <p>
+                Submission does not guarantee selection.
+                Applications are subject to review.
+            </p>
+
+            <div id="formMessage" role="status"></div>
+
+        </div>
+
+    </form>
+
+</main>
+
+
+<footer>
+    <h3>INDIA360</h3>
+    <p>Discover India, One State at a Time.</p>
+    <p>Independent Digital Project | Not an Official Government Website</p>
+    <p>© <span id="year"></span> India360. All Rights Reserved.</p>
+</footer>
+<!-- Supabase JavaScript Library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
