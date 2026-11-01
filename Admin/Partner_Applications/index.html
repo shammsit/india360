@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partner Applications | India360 Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a href="../../index.html" class="brand">India<span>360</span></a>
+
+    <div class="top-actions">
+        <span id="adminEmail">Administrator</span>
+        <button id="backDashboard" type="button">Dashboard</button>
+        <button id="logoutBtn" type="button">Logout</button>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="page-heading">
+        <div>
+            <h1>Partner Applications</h1>
+            <p>Central management of India360 state partner applications.</p>
+        </div>
+        <button id="refreshBtn" class="secondary-btn" type="button">
+            Refresh
+        </button>
+    </div>
+
+    <section class="state-selector">
+        <div>
+            <label for="stateSelect">Select State Database</label>
+            <select id="stateSelect">
+                <option value="andhra_pradesh">Andhra Pradesh</option>
+                <option value="west_bengal" disabled>West Bengal — Not Connected</option>
+                <option value="maharashtra" disabled>Maharashtra — Not Connected</option>
+            </select>
+        </div>
+
+        <div class="connection-info">
+            <span class="connection-dot"></span>
+            <span id="connectionStatus">Connecting...</span>
+        </div>
+    </section>
+
+    <section class="statistics">
+        <article class="stat-card">
+            <span>Total Applications</span>
+            <strong id="totalCount">—</strong>
+        </article>
+
+        <article class="stat-card">
+            <span>Pending</span>
+            <strong id="pendingCount">—</strong>
+        </article>
+
+        <article class="stat-card">
+            <span>Under Review</span>
+            <strong id="reviewCount">—</strong>
+        </article>
+
+        <article class="stat-card">
+            <span>Approved</span>
+            <strong id="approvedCount">—</strong>
+        </article>
+
+        <article class="stat-card">
+            <span>Rejected</span>
+            <strong id="rejectedCount">—</strong>
+        </article>
+    </section>
+
+    <section class="applications-section">
+
+        <div class="section-heading">
+            <div>
+                <h2>Application Records</h2>
+                <p id="stateHeading">Andhra Pradesh applications</p>
+            </div>
+        </div>
+
+        <div class="filters">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search name, email, mobile or application number..."
+            >
+
+            <select id="statusFilter">
+                <option value="ALL">All Statuses</option>
+                <option value="PENDING">Pending</option>
+                <option value="UNDER_REVIEW">Under Review</option>
+                <option value="APPROVED">Approved</option>
+                <option value="REJECTED">Rejected</option>
+            </select>
+
+            <button id="searchBtn" type="button">Search</button>
+        </div>
+
+        <div id="message" role="status"></div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Application No.</th>
+                        <th>Applicant</th>
+                        <th>Contact</th>
+                        <th>District</th>
+                        <th>Submitted</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="applicationTable">
+                    <tr>
+                        <td colspan="7" class="empty-cell">
+                            Loading applications...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button id="previousBtn" type="button">Previous</button>
+            <span id="pageInfo">Page 1</span>
+            <button id="nextBtn" type="button">Next</button>
+        </div>
+
+    </section>
+</main>
+
+<!-- Application Details Modal -->
+<div class="modal-overlay" id="detailsModal" hidden>
+    <div class="modal">
+        <div class="modal-header">
+            <div>
+                <h2>Application Details</h2>
+                <p id="modalApplicationNumber"></p>
+            </div>
+            <button class="close-btn" id="closeModal" type="button">×</button>
+        </div>
+
+        <div id="applicationDetails" class="modal-content">
+            Loading...
+        </div>
+
+        <div class="review-section">
+            <h3>Review Application</h3>
+
+            <label for="adminRemarks">Admin Remarks</label>
+            <textarea
+                id="adminRemarks"
+                rows="4"
+                placeholder="Enter review comments or rejection reason..."
+            ></textarea>
+
+            <div class="review-actions">
+                <button id="underReviewBtn" class="secondary-btn" type="button">
+                    Mark Under Review
+                </button>
+
+                <button id="approveBtn" class="approve-btn" type="button">
+                    Approve
+                </button>
+
+                <button id="rejectBtn" class="reject-btn" type="button">
+                    Reject
+                </button>
+            </div>
+
+            <p id="reviewMessage" role="status"></p>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
