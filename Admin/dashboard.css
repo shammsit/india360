@@ -207,3 +207,21 @@ body {
         flex-direction: column;
     }
 }
+
+
+
+.dashboard-link {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 10px 15px;
+    background: #063568;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dashboard-link:hover {
+    background: #0b4b8a;
+}
