@@ -1,7 +1,7 @@
 
 // ============================================
 // INDIA360 - STATE PARTNER APPLICATION
-// Andhra Pradesh | Supabase Integration
+// Andhra Pradesh | Supabase + Cashfree Payment Integration
 // ============================================
 
 
@@ -477,7 +477,61 @@ function isValidDriveLink(value) {
 }
 
 
-// 11. FORM SUBMISSION TO SUPABASE
+
+// 11. VERIFY CASHFREE PAYMENT WHEN THE CHECKOUT REDIRECTS BACK.
+async function verifyReturnedPayment() {
+    const params = new URLSearchParams(window.location.search);
+    const isReturn = params.get("payment_return") === "1";
+    const orderId = params.get("order_id");
+    if (!isReturn || !orderId) return;
+
+    const statusBox = document.getElementById("paymentStatus");
+    if (statusBox) {
+        statusBox.textContent = "Verifying your payment securely. Please wait…";
+        statusBox.className = "payment-status pending";
+    }
+
+    try {
+        const { data, error } = await supabaseClient.functions.invoke(
+            "india360-application-payment",
+            { body: { action: "verify-payment", order_id: orderId } }
+        );
+        if (error) throw new Error(error.message || "Payment verification failed.");
+
+        if (data && data.payment_status === "PAID") {
+            if (statusBox) {
+                statusBox.textContent =
+                    "Payment successful. Your Andhra Pradesh State Partner application has been received. Keep your order ID: " + orderId;
+                statusBox.className = "payment-status success";
+            }
+            showMessage("Your application has been submitted successfully after payment verification.", "success");
+            if (partnerForm) partnerForm.reset();
+        } else {
+            const status = (data && data.payment_status) || "PENDING";
+            if (statusBox) {
+                statusBox.textContent =
+                    "Payment status: " + status + ". If money was deducted, do not pay again immediately. Contact India360 with order ID: " + orderId;
+                statusBox.className = "payment-status pending";
+            }
+        }
+    } catch (error) {
+        console.error("INDIA360 PAYMENT VERIFICATION ERROR:", error);
+        if (statusBox) {
+            statusBox.textContent =
+                "We could not verify the payment right now. Please contact India360 and share order ID: " + orderId;
+            statusBox.className = "payment-status error";
+        }
+    } finally {
+        params.delete("payment_return");
+        // Keep order_id visible in the address only during verification; clean both after response.
+        params.delete("order_id");
+        const cleanUrl = window.location.pathname + (params.toString() ? "?" + params.toString() : "") + window.location.hash;
+        window.history.replaceState({}, document.title, cleanUrl);
+    }
+}
+verifyReturnedPayment();
+
+// 12. FORM SUBMISSION AND CASHFREE CHECKOUT
 
 if (partnerForm) {
 
@@ -776,146 +830,70 @@ if (partnerForm) {
             }
 
 
-            // SUBMIT TO SUPABASE
-
+            // CREATE A PAYMENT ORDER THROUGH THE SECURE EDGE FUNCTION.
+            // The application is stored server-side and is not inserted from the browser.
             try {
 
-                const { error } = await supabaseClient
-
-                    .from("state_partner_applications")
-
-                    .insert([applicationData]);
-
-
-                // CHECK DATABASE ERROR
-
-                if (error) {
-                    throw error;
-                }
-
-
-                // SUCCESS MESSAGE
-                // No SELECT permission is required.
-
-                showMessage(
-                    "Your India360 State Partner application has been submitted successfully! Our team will review your application.",
-                    "success"
+                const { data, error } = await supabaseClient.functions.invoke(
+                    "india360-application-payment",
+                    {
+                        body: {
+                            action: "create-order",
+                            application: applicationData
+                        }
+                    }
                 );
 
-
-                // RESET FORM
-
-                partnerForm.reset();
-
-
-                // RESET GPS
-
-                if (latitudeInput) {
-                    latitudeInput.value = "";
+                if (error) {
+                    let detail = error.message || "Unable to create payment order.";
+                    try {
+                        const response = error.context;
+                        if (response && typeof response.json === "function") {
+                            const body = await response.json();
+                            detail = body.error || body.message || detail;
+                        }
+                    } catch (_) {}
+                    throw new Error(detail);
                 }
 
-                if (longitudeInput) {
-                    longitudeInput.value = "";
+                if (!data || !data.payment_session_id || !data.order_id) {
+                    throw new Error(
+                        (data && data.error) || "Payment session was not returned by the server."
+                    );
                 }
 
-                if (accuracyInput) {
-                    accuracyInput.value = "";
+                if (typeof window.Cashfree !== "function") {
+                    throw new Error("Cashfree Checkout SDK did not load. Please refresh and try again.");
                 }
 
+                const cashfree = window.Cashfree({ mode: "production" });
 
-                // RESET OTHER FIELDS
+                showMessage("Opening secure Cashfree checkout…", "info");
 
-                [
-                    ["languageOther", "languageOtherBox", "otherLanguages"],
-                    ["technologyOther", "technologyOtherBox", "otherTechnologies"],
-                    ["interestOther", "interestOtherBox", "otherInterests"]
-
-                ].forEach(([checkboxId, boxId, inputId]) => {
-
-                    const checkbox =
-                        document.getElementById(checkboxId);
-
-                    const box =
-                        document.getElementById(boxId);
-
-                    const input =
-                        document.getElementById(inputId);
-
-
-                    if (checkbox) {
-                        checkbox.checked = false;
-                    }
-
-                    if (box) {
-                        box.classList.remove("visible");
-                    }
-
-                    if (input) {
-
-                        input.required = false;
-
-                        input.value = "";
-
-                    }
-
+                await cashfree.checkout({
+                    paymentSessionId: data.payment_session_id,
+                    redirectTarget: "_self"
                 });
-
-
-                // RESET GPS BUTTON
-
-                if (getLocationBtn) {
-
-                    getLocationBtn.disabled = false;
-
-                    getLocationBtn.textContent =
-                        "Locate My Current Position";
-
-                }
-
-
-                if (locationMessage) {
-
-                    locationMessage.textContent =
-                        "Location not captured yet.";
-
-                    locationMessage.className = "";
-
-                }
-
 
             } catch (error) {
 
-                console.error(
-                    "INDIA360 SUPABASE SUBMISSION ERROR:",
-                    error
-                );
-
+                console.error("INDIA360 PAYMENT ORDER ERROR:", error);
 
                 showMessage(
-
-                    "Submission failed: " +
+                    "Unable to start payment: " +
                     (error.message || "Unknown error") +
-                    " | Code: " + (error.code || "N/A"),
-
+                    ". Your application has not been confirmed.",
                     "error"
-
                 );
 
             } finally {
 
-                // RE-ENABLE BUTTON
-
                 if (submitButton) {
-
                     submitButton.disabled = false;
-
-                    submitButton.textContent =
-                        "Submit Application →";
-
+                    submitButton.textContent = "Pay ₹1 and Submit Application →";
                 }
 
             }
-
         }
 
     );
