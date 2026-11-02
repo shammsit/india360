@@ -698,3 +698,17 @@ footer h3 {
     }
 
 }
+
+/* CASHFREE PAYMENT STATUS */
+.payment-status {
+    margin-top: 12px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+.payment-status:empty { display: none; }
+.payment-status.pending { background: #fff7e6; color: #8a5700; border: 1px solid #f0d79c; }
+.payment-status.success { background: #eaf7ee; color: #176b35; border: 1px solid #b9e2c5; }
+.payment-status.error { background: #fff0ef; color: #a12620; border: 1px solid #f0c1bd; }
+#formMessage.info { color: #174ea6 !important; }
