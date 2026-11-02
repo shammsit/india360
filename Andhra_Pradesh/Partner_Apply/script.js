@@ -433,12 +433,13 @@ function getOptionalElementValue(id) {
 
 
 function isChecked(name) {
+    // Read the actual checked checkbox from the form DOM.
+    // querySelectorAll also handles the case where a name is ever reused.
+    const inputs = partnerForm.querySelectorAll(
+        `input[type="checkbox"][name="${name}"]`
+    );
 
-    const element =
-        partnerForm.elements.namedItem(name);
-
-    return Boolean(element && element.checked);
-
+    return Array.from(inputs).some(input => input.checked === true);
 }
 
 
