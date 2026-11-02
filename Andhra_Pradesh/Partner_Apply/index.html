@@ -576,7 +576,7 @@
         <div class="submit-section">
 
             <button type="submit" id="submitBtn">
-                Submit Application →
+                Pay ₹1 and Submit Application →
             </button>
 
             <p>
@@ -584,7 +584,8 @@
                 Applications are subject to review.
             </p>
 
-            <div id="formMessage" role="status"></div>
+            <div id="formMessage" role="status" aria-live="polite"></div>
+            <p id="paymentStatus" class="payment-status" role="status" aria-live="polite"></p>
 
         </div>
 
@@ -599,6 +600,8 @@
     <p>Independent Digital Project | Not an Official Government Website</p>
     <p>© <span id="year"></span> India360. All Rights Reserved.</p>
 </footer>
+<!-- Cashfree Checkout SDK -->
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
 <!-- Supabase JavaScript Library -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
